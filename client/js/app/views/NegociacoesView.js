@@ -29,7 +29,7 @@ class NegociacoesView extends View {
                     
                 `).join('')}                
             </tbody>
-                  
+            
             <tfoot>
                 <td colspan="3"></td>
                 <td>
