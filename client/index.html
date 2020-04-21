@@ -61,14 +61,16 @@
 
         let negociacao = new Proxy(new Negociacao(new Date(), 2, 100), {
 
-            get: function(target, prop, receiver) {
+            set: function(target, prop, value, receiver) {
                 console.log(`a proriedade "${prop}" foi interceptada`);
-                return Reflect.get(target, prop, receiver);
+
+                console.log(`valor anterior: ${target[prop]} novo valor: ${value}`);
+                return Reflect.set(target, prop, receiver);
         }
         });
 
-        console.log(negociacao.quantidade);
-        console.log(negociacao.valor);
+        negociacao._quantidade = 10;
+        negociacao._valor = 200;
         
     </script>
 </body>
